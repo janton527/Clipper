@@ -10,9 +10,11 @@ public class Main {
         Date today = new Date(LocalDateTime.now().getMonthValue(), LocalDateTime.now().getDayOfMonth());
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
+        //create first text and save it to the clipboard
         StringSelection myText = new StringSelection("Seller info requested, DL " + today.getDeadline());
         clipboard.setContents(myText, myText);
 
+        //create second text and save it to the clipboard
         StringSelection myText1 = new StringSelection("some other text");
         clipboard.setContents(myText1, myText1);
     }
