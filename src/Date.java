@@ -1,10 +1,11 @@
+import java.time.LocalDateTime;
+
 public class Date {
     private String month;
     private int day;
 
     public Date (){
-        this.month = "January";
-        this.day = 1;
+        this(LocalDateTime.now().getMonthValue(), LocalDateTime.now().getDayOfMonth());
     }
 
     public Date (int month, int day) {
@@ -63,8 +64,6 @@ public class Date {
     }
 
     public String getDeadline (){
-        return "" + this.getMonth() + " " + (this.getDay()+4);
+        return ""  + (this.getDay()+4) + " " + this.getMonth();
     }
-
-
 }
