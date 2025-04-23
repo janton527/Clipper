@@ -29,7 +29,7 @@ public class Main {
             StringSelection clip = new StringSelection(line);
             clipboard.setContents(clip, null);
             System.out.println("Adding to clipboard");
-            Thread.sleep(500);
+            Thread.sleep(300);
         }
 
         StringSelection clip = new StringSelection(today.getDeadline());
