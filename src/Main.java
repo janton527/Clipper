@@ -15,7 +15,5 @@ public class Main {
 
         StringSelection myText1 = new StringSelection("some other text");
         clipboard.setContents(myText1, myText1);
-
-
     }
 }
