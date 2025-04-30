@@ -8,19 +8,19 @@ import java.awt.Toolkit;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Scanner inputStream = null;
-        Date today = new Date(LocalDateTime.now().getMonthValue(), LocalDateTime.now().getDayOfMonth());
+        Date today = new Date(LocalDateTime.now().getMonthValue(), LocalDateTime.now().getDayOfMonth(), LocalDateTime.now().getYear());
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         String line;
 
         try {
-            inputStream = new Scanner(new FileInputStream("clipboard.txt"));
+            inputStream = new Scanner(new FileInputStream("D:\\Java Projects\\Clipper\\clipboard.txt"));
         } catch (FileNotFoundException e){
             System.out.println(e.getMessage());
         }
 
         while (inputStream.hasNext()){
             line = inputStream.nextLine();
-            if (line.contains("DL") || line.contains("UTL")){
+            if (line.contains("DL")){
                 line += " " + today.getDeadline();
             }else if (line.contains("QQQ")){
                 int index = line.indexOf("QQQ");
@@ -35,5 +35,10 @@ public class Main {
         StringSelection clip = new StringSelection(today.getDeadline());
         clipboard.setContents(clip, null);
         System.out.println("DONE");
+        Toolkit.getDefaultToolkit().beep();
+
+
+        Date testDate = new Date (4,30, 2025);
+        System.out.println(testDate.getDeadline());
     }
 }

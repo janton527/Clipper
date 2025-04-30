@@ -2,53 +2,20 @@ import java.time.LocalDateTime;
 
 public class Date {
     private String month;
+    private int monthNumber;
     private int day;
+    private int year;
 
     public Date (){
-        this(LocalDateTime.now().getMonthValue(), LocalDateTime.now().getDayOfMonth());
+        this(LocalDateTime.now().getMonthValue(), LocalDateTime.now().getDayOfMonth(), LocalDateTime.now().getYear());
     }
 
-    public Date (int month, int day) {
+    public Date (int month, int day, int year) {
 
-        switch (month){
-            case 1:
-                this.month = "January";
-                break;
-            case 2:
-                this.month = "February";
-                break;
-            case 3:
-                this.month = "March";
-                break;
-            case 4:
-                this.month = "April";
-                break;
-            case 5:
-                this.month = "May";
-                break;
-            case 6:
-                this.month = "June";
-                break;
-            case 7:
-                this.month = "July";
-                break;
-            case 8:
-                this.month = "August";
-                break;
-            case 9:
-                this.month = "September";
-                break;
-            case 10:
-                this.month = "October";
-                break;
-            case 11:
-                this.month = "November";
-                break;
-            case 12:
-                this.month = "December";
-                break;
-        }
+        this.month = getMonthString(month);
+        this.monthNumber = month;
         this.day = day;
+        this.year = year;
     }
 
     public String getMonth(){
@@ -64,6 +31,107 @@ public class Date {
     }
 
     public String getDeadline (){
-        return ""  + (this.getDay()+4) + " " + this.getMonth();
+        int monthNumber = this.monthNumber;
+        int deadlineDay;
+        boolean isLeapYear = checkLeapYear();
+
+        if (monthNumber == 1 || monthNumber == 3 || monthNumber == 5 || monthNumber == 7 || monthNumber == 8 ||
+                monthNumber == 10 || monthNumber == 12){
+            if ((this.getDay() + 4) % 31 != 0){
+                deadlineDay = (this.getDay() + 4)% 31;
+                monthNumber++;
+            }else{
+                deadlineDay = this.getDay() + 4;
+            }
+        } else if (monthNumber == 2 || monthNumber == 4 || monthNumber == 6 || monthNumber == 9 || monthNumber == 11){
+            if ((this.getDay() + 4) % 30 != 0){
+                deadlineDay = (this.getDay() + 4) % 30;
+                monthNumber++;
+            }else {
+                deadlineDay = this.getDay() + 4;
+            }
+        } else {
+            if (isLeapYear){
+                if ((this.getDay() +4) % 29 != 0){
+                    deadlineDay = (this.getDay() +4)  % 29;
+                    monthNumber++;
+                } else {
+                    deadlineDay = this.getDay() + 4;
+                }
+            } else {
+                if ((this.getDay() +4) % 28 != 0){
+                    deadlineDay = (this.getDay() +4) % 28;
+                    monthNumber++;
+                }else {
+                    deadlineDay = this.getDay() + 4;
+                }
+            }
+        }
+
+        return ""  + (deadlineDay) + " " + getMonthString(monthNumber);
+    }
+
+    private boolean checkLeapYear (){
+        boolean isLeapYear;
+
+        if (year % 4 == 0){
+            if (year % 100 == 0){
+                if (year % 400 == 0){
+                    isLeapYear = true;
+                } else {
+                    isLeapYear = false;
+                }
+            } else {
+                isLeapYear = true;
+            }
+        } else {
+            isLeapYear = false;
+        }
+
+        return isLeapYear;
+    }
+
+    private String getMonthString (int month){
+        String monthString = "";
+
+        switch (month){
+            case 1:
+                monthString = "January";
+                break;
+            case 2:
+                monthString = "February";
+                break;
+            case 3:
+                monthString = "March";
+                break;
+            case 4:
+                monthString = "April";
+                break;
+            case 5:
+                monthString = "May";
+                break;
+            case 6:
+                monthString = "June";
+                break;
+            case 7:
+                monthString = "July";
+                break;
+            case 8:
+                monthString = "August";
+                break;
+            case 9:
+                monthString = "September";
+                break;
+            case 10:
+                monthString = "October";
+                break;
+            case 11:
+                monthString = "November";
+                break;
+            case 12:
+                monthString = "December";
+                break;
+        }
+        return monthString;
     }
 }
