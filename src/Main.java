@@ -36,9 +36,5 @@ public class Main {
         clipboard.setContents(clip, null);
         System.out.println("DONE");
         Toolkit.getDefaultToolkit().beep();
-
-
-        Date testDate = new Date (4,30, 2025);
-        System.out.println(testDate.getDeadline());
     }
 }

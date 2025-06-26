@@ -37,29 +37,29 @@ public class Date {
 
         if (monthNumber == 1 || monthNumber == 3 || monthNumber == 5 || monthNumber == 7 || monthNumber == 8 ||
                 monthNumber == 10 || monthNumber == 12){
-            if ((this.getDay() + 4) % 31 != 0){
-                deadlineDay = (this.getDay() + 4)% 31;
+            if ((this.getDay() + 4) >= 31){
+                deadlineDay = (this.getDay() + 4) % 32;
                 monthNumber++;
             }else{
                 deadlineDay = this.getDay() + 4;
             }
         } else if (monthNumber == 2 || monthNumber == 4 || monthNumber == 6 || monthNumber == 9 || monthNumber == 11){
-            if ((this.getDay() + 4) % 30 != 0){
-                deadlineDay = (this.getDay() + 4) % 30;
+            if ((this.getDay() + 4) >= 30){
+                deadlineDay = (this.getDay() + 4) % 31;
                 monthNumber++;
             }else {
                 deadlineDay = this.getDay() + 4;
             }
         } else {
             if (isLeapYear){
-                if ((this.getDay() +4) % 29 != 0){
+                if ((this.getDay() +4) >= 29){
                     deadlineDay = (this.getDay() +4)  % 29;
                     monthNumber++;
                 } else {
                     deadlineDay = this.getDay() + 4;
                 }
             } else {
-                if ((this.getDay() +4) % 28 != 0){
+                if ((this.getDay() +4) >= 28){
                     deadlineDay = (this.getDay() +4) % 28;
                     monthNumber++;
                 }else {
