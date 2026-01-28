@@ -1,0 +1,13 @@
+Pkg ID #, UTL, contacted member, invoice requested (or MI$ amount), reminder set for 
+information not provided by deadline, discard package
+We ask that you supply this information by QQQ or we may need to take further action, which does include removing the package from your Suite.
+Pkg ID XXXXXXX ship FEDEX ONLY
+information not provided by deadline, discard package
+advised mem of options for XXXX, DL 
+advised mem of RTO shipment, DL 
+advised mem of RTO shipment, problem released -- account set to hold 
+emailed mem is this your package, DL 
+emailed mem regarding no name match, DL 
+Requested MI$, DL EOD 
+Requested seller info, DL 
+Advised mem of package on hold, Final DL 

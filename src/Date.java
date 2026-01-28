@@ -40,7 +40,7 @@ public class Date {
             if ((this.getDay() + 4) >= 31){
                 deadlineDay = (this.getDay() + 4) % 32;
                 monthNumber++;
-                day++;
+                deadlineDay++;
             }else{
                 deadlineDay = this.getDay() + 4;
             }
@@ -48,7 +48,7 @@ public class Date {
             if ((this.getDay() + 4) >= 30){
                 deadlineDay = (this.getDay() + 4) % 31;
                 monthNumber++;
-                day++;
+                deadlineDay++;
             }else {
                 deadlineDay = this.getDay() + 4;
             }
@@ -57,7 +57,7 @@ public class Date {
                 if ((this.getDay() +4) >= 29){
                     deadlineDay = (this.getDay() +4)  % 30;
                     monthNumber++;
-                    day++;
+                    deadlineDay++;
                 } else {
                     deadlineDay = this.getDay() + 4;
                 }
@@ -65,7 +65,7 @@ public class Date {
                 if ((this.getDay() +4) >= 28){
                     deadlineDay = (this.getDay() +4) % 29;
                     monthNumber++;
-                    day++;
+                    deadlineDay++;
                 }else {
                     deadlineDay = this.getDay() + 4;
                 }

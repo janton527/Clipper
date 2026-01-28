@@ -13,7 +13,7 @@ public class Main {
         String line;
 
         try {
-            inputStream = new Scanner(new FileInputStream("D:\\Java Projects\\Clipper\\clipboard.txt"));
+            inputStream = new Scanner(new FileInputStream("C:\\Users\\Jacob\\Desktop\\Clipper\\src\\clipboard.txt"));
         } catch (FileNotFoundException e){
             System.out.println(e.getMessage());
         }
