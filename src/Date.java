@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.Year;
 
 public class Date {
     private String month;
@@ -44,7 +45,7 @@ public class Date {
             }else{
                 deadlineDay = this.getDay() + 4;
             }
-        } else if (monthNumber == 2 || monthNumber == 4 || monthNumber == 6 || monthNumber == 9 || monthNumber == 11){
+        } else if (monthNumber == 4 || monthNumber == 6 || monthNumber == 9 || monthNumber == 11){
             if ((this.getDay() + 4) >= 30){
                 deadlineDay = (this.getDay() + 4) % 31;
                 monthNumber++;
@@ -54,7 +55,7 @@ public class Date {
             }
         } else {
             if (isLeapYear){
-                if ((this.getDay() +4) >= 29){
+                if ((this.getDay() + 4) >= 29){
                     deadlineDay = (this.getDay() +4)  % 30;
                     monthNumber++;
                     deadlineDay++;
@@ -76,23 +77,8 @@ public class Date {
     }
 
     private boolean checkLeapYear (){
-        boolean isLeapYear;
 
-        if (year % 4 == 0){
-            if (year % 100 == 0){
-                if (year % 400 == 0){
-                    isLeapYear = true;
-                } else {
-                    isLeapYear = false;
-                }
-            } else {
-                isLeapYear = true;
-            }
-        } else {
-            isLeapYear = false;
-        }
-
-        return isLeapYear;
+        return Year.of(year).isLeap();
     }
 
     private String getMonthString (int month){
