@@ -37,7 +37,7 @@ public class Date {
         boolean isLeapYear = checkLeapYear();
 
         if (monthNumber == 1 || monthNumber == 3 || monthNumber == 5 || monthNumber == 7 || monthNumber == 8 ||
-                monthNumber == 10 || monthNumber == 12){
+                monthNumber == 10 ) {
             if ((this.getDay() + 4) >= 31){
                 deadlineDay = (this.getDay() + 4) % 32;
                 monthNumber++;
@@ -53,7 +53,16 @@ public class Date {
             }else {
                 deadlineDay = this.getDay() + 4;
             }
-        } else {
+        } else if (monthNumber == 12 ) {            // December
+            if ((this.getDay() + 4) >= 31 ) {       // New Year rollover
+                deadlineDay = (this.getDay() + 4) % 32;
+                monthNumber = 1;
+                deadlineDay++;
+            } else {
+                deadlineDay = this.getDay() + 4;
+            }
+        }
+        else {                                      //February
             if (isLeapYear){
                 if ((this.getDay() + 4) >= 29){
                     deadlineDay = (this.getDay() +4)  % 30;
